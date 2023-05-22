@@ -36,6 +36,7 @@ public:
         touchObj.setProperty(runtime, "timestamp",
                              static_cast<double>(t.timestamp / 1000.0));
         touchObj.setProperty(runtime, "id", static_cast<double>(t.id));
+        touchObj.setProperty(runtime, "tool", static_cast<double>(t.tool));
         touches.setValueAtIndex(runtime, n, touchObj);
       }
       ops.setValueAtIndex(runtime, i, touches);

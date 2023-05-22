@@ -83,6 +83,7 @@ public:
       point.force = pin[i + 2];
       point.type = (RNSkia::RNSkTouchInfo::TouchType)pin[i + 3];
       point.id = pin[i + 4];
+      point.tool = (RNSkia::RNSkTouchInfo::TouchTool) pin[i + 5];
       points.push_back(point);
     }
     T::updateTouchState(points);

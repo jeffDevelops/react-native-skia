@@ -51,6 +51,7 @@ public abstract class SkiaBaseView extends ReactViewGroup implements TextureView
                 points[2] = ev.getPressure(pointerIndex);
                 points[3] = motionActionToType(action);
                 points[4] = ev.getPointerId(pointerIndex);
+                points[5] = motionActionToTool(ev.getToolType(pointerIndex));
 
                 updateTouchPoints(points);
 
@@ -68,6 +69,7 @@ public abstract class SkiaBaseView extends ReactViewGroup implements TextureView
                     points[pointerIndex++] = ev.getPressure(i);
                     points[pointerIndex++] = motionActionToType(action);
                     points[pointerIndex++] = ev.getPointerId(i);
+                    points[pointerIndex++] = motionActionToTool(ev.getToolType(i));
                 }
 
                 updateTouchPoints(points);
@@ -98,6 +100,29 @@ public abstract class SkiaBaseView extends ReactViewGroup implements TextureView
                 break;
         }
         return actionType;
+    }
+
+    private static int motionActionToTool(int tool) {
+        int toolType = 4;
+        switch (tool) {
+            case MotionEvent.TOOL_TYPE_FINGER:
+                toolType = 0;
+                break;
+            case MotionEvent.TOOL_TYPE_STYLUS:
+                actionType = 1;
+                break;
+            case MotionEvent.TOOL_TYPE_ERASER:
+                actionType = 2;
+                break;
+            case MotionEvent.TOOL_TYPE_MOUSE:
+                actionType = 3;
+                break;
+            case MotionEvent.TOOL_TYPE_UNKNOWN:
+            default:
+                actionType = 4;
+                break;
+        }
+        return toolType;
     }
 
     @Override

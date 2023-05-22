@@ -98,19 +98,19 @@ process.chdir("./package");
 console.log("Build package", process.cwd());
 executeCmdSync("yarn build");
 
-console.log("Running `npm pack` in package folder", process.cwd());
-executeCmdSync("npm pack");
+// console.log("Running `npm pack` in package folder", process.cwd());
+// executeCmdSync("npm pack");
 process.chdir(currentDir);
 
 console.log("Done building NPM package");
 
 // Copy package to the dist folder
-const packageFilename = `shopify-react-native-skia-${pck.version}.tgz`;
-const packagePath = `./package/${packageFilename}`;
-fs.renameSync(packagePath, `${getDistFolder()}/${packageFilename}`);
+// const packageFilename = `shopify-react-native-skia-${pck.version}.tgz`;
+// const packagePath = `./package/${packageFilename}`;
+// fs.renameSync(packagePath, `${getDistFolder()}/${packageFilename}`);
 
 // Done!
-console.log(
-  `Written NPM package ${packageFilename} to ${getDistFolder()} folder.`
-);
+// console.log(
+//   `Written NPM package ${packageFilename} to ${getDistFolder()} folder.`
+// );
 exit(0);

@@ -24,6 +24,14 @@ export enum TouchType {
   Cancelled,
 }
 
+export enum TouchTool {
+  Finger,
+  Stylus,
+  Eraser,
+  Mouse,
+  Unknown,
+}
+
 export interface TouchInfo {
   x: number;
   y: number;
@@ -31,6 +39,7 @@ export interface TouchInfo {
   type: TouchType;
   id: number;
   timestamp: number;
+  tool: TouchTool;
 }
 
 export interface DrawingInfo {

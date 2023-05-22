@@ -137,12 +137,14 @@ enum RNSkDrawingMode { Default, Continuous };
 
 using RNSkTouchInfo = struct {
   enum TouchType { Start, Active, End, Cancelled };
+  enum TouchTool { Finger, Stylus, Eraser, Mouse, Unknown };
   double x;
   double y;
   double force;
   TouchType type;
   size_t id;
   long timestamp;
+  TouchTool tool;
 };
 
 class RNSkView : public std::enable_shared_from_this<RNSkView> {
